@@ -69,3 +69,7 @@
     margin-right: 8px;
     width: 100px;
 }
+
+div#input-row {
+    align-items: center;
+}
