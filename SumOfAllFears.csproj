@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\bermuda-come-back-later-1.png" />
+    <Content Include="Assets\mirage-bad-gateway.png" />
     <Content Include="Code.html" />
     <Content Include="Content\CustomCSS.css" />
     <Content Include="Content\IndexCustomCSS.css" />
