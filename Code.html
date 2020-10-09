@@ -66,152 +66,79 @@
                 <p class="lead">Syntax is highlighted using Prism.js</p>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
-                        <div class="card-header" id="headingSunset">
+                        <div class="card-header" id="headingFear">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSunset" aria-expanded="false" aria-controls="collapseSunset">
-                                    Sunset
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFear" aria-expanded="false" aria-controls="collapseFear">
+                                    Fear
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseSunset" class="collapse" aria-labelledby="headingSunset" data-parent="#accordionExample">
+                        <div id="collapseFear" class="collapse" aria-labelledby="headingFear" data-parent="#accordionExample">
                             <div class="card-body">
 <pre>
-<code class="language-js">function Sunset(...buildings) {
-    // First building can always see sunset
-    let results = ['See'];
-    // For each building (excluding the first one)
-    for (let i = 1; i < buildings.length; i++) {
-        // assume no building is bigger
-        let bigger = false;
-        // Check if any building before it is larger
-        for (let j = 0; j < i; j++) {
-            // previous greater than current?
-            if (buildings[j] >= buildings[i]) {
-                // If previous building is bigger
-                bigger = true;
-                // stop checking if bigger is found
-                break;
-            } else {
-                // If previous building is smaller, check next
-                continue;
-        }
-    }
-    // If there's a bigger building we're blind, otherwise we can see
-        bigger ? results.push("Blind") : results.push("See");
-    }
-    // How many can see?
-    let see = results.filter(x => x == 'See').length;
-    results.push(see);
-    // How many are blind?
-    let blind = results.filter(x => x == 'Blind').length;
-    results.push(blind);
-    document.getElementById("result").innerText = results;
+<code class="language-js">// user input element
+const k = document.getElementById('kValue');
+// algo output element
+const r = document.getElementById('result');
 
-    ColorBuildings(results);
-}</code>
-</pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingColor">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseColor" aria-expanded="false" aria-controls="collapseFive">
-                                    Color
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseColor" class="collapse" aria-labelledby="headingColor" data-parent="#accordionExample">
-                            <div class="card-body">
-<pre>
-<code class="language-js">function ColorBuildings(results) {
-    for (let i = 1; i <= 5; i++) {
-        let e = document.getElementById("sky" + i.toString());
-        if (results[i-1] == "See") {
-            e.setAttribute("class", "skyscraper blue");
-        } else {
-            e.setAttribute("class", "skyscraper gray");
+// hard-coded array
+let arr = [10, 15, 3, 7, 10];
+
+// core algo
+function Fear() {
+    // k value as a number
+    let kval = parseInt(k.value);
+    // loop through each value in arr
+    for (let i = 0; i < arr.length; i++) {
+        /* splice removes element from array and returns an array
+        * so that when searching for the complement, self is not included
+        */
+        let num = arr.splice(i, 1);
+        /* search is the value we want to find in the array
+        * equal to the sum "K" minus the current value in array
+        */
+        let search = kval - num[0];
+        /* index is where the value is in the array
+        * if it's not found it's equal to -1
+        */
+        let index = arr.indexOf(search);
+        /* If the index is greater than or equal to zero
+        * we've found the complement
+        */
+        if (index >= 0) {
+            r.innerHTML = `<b>${num} and ${search}</b>`;
+            // put the value back into the array
+            arr.splice(i, 0, num);
+            return;
         }
+        // put the value back into the array
+        arr.splice(i, 0, num[0]);
     }
+    // we've gone through the whole array and havn't found any complements
+    r.innerHTML = `<b>No Complement...</b>`;
+    // highlight previous number in the input box
+    k.select();
 }</code>
 </pre>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingBuild">
+                        <div class="card-header" id="headingClear">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseBuild" aria-expanded="false" aria-controls="collapseBuild">
-                                    Build
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseBuild" class="collapse" aria-labelledby="headingBuild" data-parent="#accordionExample">
-                            <div class="card-body">
-<pre>
-<code class="language-js">function BuildIt(input, sky) {
-    let stories = parseInt(input.value);
-    sky.animate([
-        // keyframes
-        { height: sky.style.height },
-        { height: (stories * 50).toString() + "px" }
-    ], {
-        // timing options
-        duration: 1000,
-        fill: 'forwards',
-        easing: "ease-in-out"
-    });
-}</code>
-</pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingDemolish">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseDemolish" aria-expanded="false" aria-controls="collapseDemolish">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseClear" aria-expanded="false" aria-controls="collapseClear">
                                     Clear
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseDemolish" class="collapse" aria-labelledby="headingDemolish" data-parent="#accordionExample">
+                        <div id="collapseClear" class="collapse" aria-labelledby="headingClear" data-parent="#accordionExample">
                             <div class="card-body">
 <pre>
-<code class="language-js">function Demolish() {
-    console.log("Rubbles...")
-    let b1 = document.getElementById('b1');
-    let b2 = document.getElementById('b2');
-    let b3 = document.getElementById('b3');
-    let b4 = document.getElementById('b4');
-    let b5 = document.getElementById('b5');
-    let sky1 = document.getElementById("sky1");
-    let sky2 = document.getElementById("sky2");
-    let sky3 = document.getElementById("sky3");
-    let sky4 = document.getElementById("sky4");
-    let sky5 = document.getElementById("sky5");
-
-    b1.value = 1;
-    sky1.setAttribute("class", "skyscraper gray");
-    BuildIt(b1, sky1);
-
-    b2.value = 1;
-    sky2.setAttribute("class", "skyscraper gray");
-    BuildIt(b1, sky2);
-
-    b3.value = 1;
-    sky3.setAttribute("class", "skyscraper gray");
-    BuildIt(b1, sky3);
-
-    b4.value = 1;
-    sky4.setAttribute("class", "skyscraper gray");
-    BuildIt(b1, sky4);
-
-    b5.value = 1;
-    sky5.setAttribute("class", "skyscraper gray");
-    BuildIt(b1, sky5);
-
-    document.getElementById("result").innerText = '';
-    document.getElementById('b1').focus();
+<code class="language-js">// clear input and output
+function Clear() {
+    k.value = '';
+    r.innerHTML = `<div></div>`;
+    k.focus();
 }</code>
 </pre>
                             </div>
