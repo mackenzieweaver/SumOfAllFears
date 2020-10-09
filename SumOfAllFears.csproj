@@ -72,7 +72,6 @@
     <Content Include="Content\CustomCSS.css" />
     <Content Include="Content\IndexCustomCSS.css" />
     <Content Include="Content\prism.css" />
-    <Content Include="Content\skyscraper.css" />
     <Content Include="Index.html" />
     <Content Include="Krona_One\favicon-32x32.png" />
     <Content Include="Scripts\CustomJS.js" />

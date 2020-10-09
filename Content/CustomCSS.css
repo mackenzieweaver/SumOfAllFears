@@ -56,8 +56,16 @@
 
 .input-group {
     margin-bottom: 30px;
+    width: 50%;
+    margin-left: 20%;
 }
 
-#output {
+#input-row {
     margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#input-row > input {
+    margin-right: 8px;
+    width: 100px;
 }

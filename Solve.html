@@ -11,16 +11,13 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="Krona_One/favicon-32x32.png">
 
-    <title>Sunset Hills</title>
+    <title>Sum of All Fears</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Custom CSS -->
     <link href="Content/CustomCSS.css" rel="stylesheet" />
-
-    <!-- Skyscraper -->
-    <link href="Content/skyscraper.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/8b5ae67e5c.js" crossorigin="anonymous"></script>
@@ -30,7 +27,7 @@
 
 </head>
 
-<body onload="Demolish()">
+<body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
@@ -73,136 +70,38 @@
                 <h1 class="mt-5">The Solution</h1>
             </div>
         </div>
-        <!-- ================== Sunset Hills ================== -->
+        <!-- ================== Sum of All Fears ================== -->
         <div class="jumbotron text-center">
-            <h3 class="display-4">Sunset Hills</h3>
+            <h3 class="display-4">Sum of All Fears</h3>
             <p>
-                Enter in a number between 1 and 100 into each of the input fields. These numbers will represent how many floors are in each building. Since the sun sets in the west, the left-most building will always be able to see the sunset. The algorithm will tell you of the rest of the buildings which ones can see the sunset. If the left most building is the tallest, none of the others will be able to see.
+                Given a list of numbers and a number K, return
+                whether any two numbers from the list add up
+                to K.
+            </p>
+            <p>
+                Example: given [10, 15, 3, 7] and K of 17, return
+                true since 10 + 7 is 17.
+            </p>
+            <p>
+                The basic challenge is to write a program that
+                uses a hard-coded array of [10, 15, 3, 7] and
+                allows the user to enter a value for K before
+                running the algorithm and returning true or
+                false.
             </p>
             <hr class="my-4">
+            <div class="row justify-content-center">
+                <div>Given [10, 15, 3, 7]:</div>
+            </div>
+            <div id="input-row" class="row justify-content-center">
+                <input id="kvalue" type="number" placeholder="K value" min="1" oninput="validity.valid || (value = '');" />
+                <div>
+                    <button class="btn btn-danger" onclick="clear()">Clear</button>
+                    <button class="btn btn-dark" onclick="fear()">Calculate</button>
+                </div>
+            </div>
             <div id="output" class="row justify-content-center">
-                <div class="p-3 mb-5 bg-white rounded">Result: <span id="result"></span></div>
-            </div>
-            <div class="input-group">
-
-                <input id="b1" type="number" class="form-control" placeholder="Bldg 1 # of floors" min="1" max="100" value="1" 
-                       onload="BuildIt(this, document.getElementById('sky1'))"
-                       oninput="validity.valid || (value = ''); BuildIt(this, document.getElementById('sky1'));" />
-                <input id="b2" type="number" class="form-control" placeholder="Bldg 2 # of floors" min="1" max="100" value="1" 
-                       onload="BuildIt(this, document.getElementById('sky1'))"
-                       oninput="validity.valid||(value=''); BuildIt(this, document.getElementById('sky2'));" />
-                <input id="b3" type="number" class="form-control" placeholder="Bldg 3 # of floors" min="1" max="100" value="1"
-                       onload="BuildIt(this, document.getElementById('sky1'))"
-                       oninput="validity.valid||(value=''); BuildIt(this, document.getElementById('sky3'));" />
-                <input id="b4" type="number" class="form-control" placeholder="Bldg 4 # of floors" min="1" max="100" value="1"
-                       onload="BuildIt(this, document.getElementById('sky1'))"
-                       oninput="validity.valid||(value=''); BuildIt(this, document.getElementById('sky4'));" />
-                <input id="b5" type="number" class="form-control" placeholder="Bldg 5 # of floors" min="1" max="100" value="1"
-                       onload="BuildIt(this, document.getElementById('sky1'))"
-                       oninput="validity.valid||(value=''); BuildIt(this, document.getElementById('sky5'));" />
-
-                <div class="input-group-append" id="button-addon4">
-                    <button id="clear-fizz-buzz" class="btn btn-danger" onclick="Demolish()">Clear</button>
-                    <button class="btn btn-dark" onclick="Sunset(
-                        parseInt(document.getElementById('b1').value),
-                        parseInt(document.getElementById('b2').value),
-                        parseInt(document.getElementById('b3').value),
-                        parseInt(document.getElementById('b4').value),
-                        parseInt(document.getElementById('b5').value))">
-                        Visualize
-                    </button>
-                </div>
-            </div>
-            <div id="skyscrapers" class="row">
-                <div id="sky1" class="skyscraper gray">
-                    <!--<div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>-->
-                </div>
-                <div id="sky2" class="skyscraper gray">
-                    <!--<div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>-->
-                </div>
-                <div id="sky3" class="skyscraper gray">
-                    <!--<div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>-->
-                </div>
-                <div id="sky4" class="skyscraper gray">
-                    <!--<div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>-->
-                </div>
-                <div id="sky5" class="skyscraper gray">
-                    <!--<div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>-->
-                </div>
+                <div>Result: <span id="result"></span></div>
             </div>
         </div>
     </div>
