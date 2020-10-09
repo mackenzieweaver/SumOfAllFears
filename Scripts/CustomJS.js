@@ -31,6 +31,8 @@ function Fear() {
             r.innerHTML = `<b>${num} and ${search}</b>`;
             // put the value back into the array
             arr.splice(i, 0, num);
+            // highlight previous number in the input box
+            k.select();
             return;
         }
         // put the value back into the array
