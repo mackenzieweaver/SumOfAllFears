@@ -1,24 +1,25 @@
 ﻿const r = document.getElementById('result');
 const k = document.getElementById('kValue');
-const s = document.getElementById('sumValue');
 
-let array = [10, 15, 3, 7];
+let arr = [10, 15, 3, 7];
 
 function Fear() {
     let kval = parseInt(k.value);
-    let sval = parseInt(s.value);
-    for (let i = 0; i < array.length; i++) {
-        if (sval - array[i] == kval) {
-            r.innerHTML = `<b>True</b> complement <b>${array[i]}</b> at index <b>${i}</b>`;
+    for (let i = 0; i < arr.length; i++) {
+        let num = arr[i];
+        let search = kval - num;
+        let index = arr.indexOf(search);
+
+        if (index >= 0) {
+            console.log(num, search);
             return;
-        }      
+        }            
     }
-    r.innerHTML = `<b>False</b> array does not contain complement...`;
+    console.log("No complement");
 }
 
 function Clear() {
     k.value = '';
-    s.value = '';
     r.innerHTML = `<div></div>`;
     k.focus();
 }
