@@ -94,10 +94,11 @@
                 <div>Given [10, 15, 3, 7]:</div>
             </div>
             <div id="input-row" class="row justify-content-center">
-                <input id="kvalue" type="number" placeholder="K value" min="1" oninput="validity.valid || (value = '');" />
+                <input id="kValue" type="number" placeholder="K value" min="1" oninput="validity.valid || (value = '');" />
+                <input id="sumValue" type="number" placeholder="Sum value" min="1" oninput="validity.valid || (value = '');" />
                 <div>
-                    <button class="btn btn-danger" onclick="clear()">Clear</button>
-                    <button class="btn btn-dark" onclick="fear()">Calculate</button>
+                    <button class="btn btn-danger" onclick="Clear()">Clear</button>
+                    <button class="btn btn-dark" onclick="Fear()">Calculate</button>
                 </div>
             </div>
             <div id="output" class="row justify-content-center">
