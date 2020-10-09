@@ -1,0 +1,63 @@
+﻿h1 {
+    margin-bottom: 30px;
+}
+
+#determine-btns > .btn {
+    margin-right: 10px;
+}
+
+.determine-num {
+    width: 75px;
+    margin-right: 10px;
+}
+
+/*#fizz-num, #buzz-num, #upper-limit {
+    width: 125px;
+    margin-right: 10px;
+}*/
+
+#numbers-result, #factorial-result, #palindrome-result {
+    min-height: 30px;
+}
+
+.result-class {
+    outline: 1px solid gray;
+    padding: 0 15px;
+    background-color: lightgray;
+    width: 300px;
+}
+
+#console-help {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.palindrome-checkbox {
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.p-3 {
+    padding: .5rem !important;
+}
+
+.mb-5, .my-5 {
+    text-align: left;
+    margin-bottom: 1rem !important;
+    width: 40%;
+}
+
+#reversed-word, #palindrome-result {
+    width: 100%;
+    text-align: end;
+}
+
+.input-group {
+    margin-bottom: 30px;
+}
+
+#output {
+    margin-top: 16px;
+}

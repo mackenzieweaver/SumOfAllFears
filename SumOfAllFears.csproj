@@ -67,6 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\bermuda-come-back-later-1.png" />
+    <Content Include="Code.html" />
+    <Content Include="Content\CustomCSS.css" />
+    <Content Include="Content\IndexCustomCSS.css" />
+    <Content Include="Content\prism.css" />
+    <Content Include="Content\skyscraper.css" />
+    <Content Include="Index.html" />
+    <Content Include="Krona_One\favicon-32x32.png" />
+    <Content Include="Scripts\CustomJS.js" />
+    <Content Include="Scripts\prism.js" />
+    <Content Include="Solve.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
