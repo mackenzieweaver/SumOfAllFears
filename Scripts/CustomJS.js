@@ -2,8 +2,9 @@
 const k = document.getElementById('kValue');
 // algo output element
 const r = document.getElementById('result');
+const o = document.getElementById('the-array');
 
-// start with hard-coded array 
+// start with hard-coded array
 let arr = [10, 15, 3, 7];
 
 // core algo
@@ -18,6 +19,7 @@ function Fear() {
         }
         arr = userArr;
     }
+    document.getElementById("user-array").value = '';
     /* END USER INPUT ARRAY */
 
     /* START RANDOM ARRAY */
@@ -26,13 +28,15 @@ function Fear() {
     if (!isNaN(randomArrLength)) {
         arr = [];
         for (let i = 0; i < randomArrLength; i++) {
-            arr.push(Math.ceil(Math.random() * 100));
+            // only numbers between 1-50
+            arr.push(Math.ceil(Math.random() * 50));
         }
     }
+    document.getElementById("random-array-length").value = '';
     /* END RANDOM ARRAY */
 
     console.log(arr, userArr, randomArrLength);
-    document.getElementById("the-array").innerHTML = `The array is [${arr}]`;
+    document.getElementById("the-array").innerHTML = `[${arr}]`;
     // k value as a number
     let kval = parseInt(k.value);
     // loop through each value in arr
@@ -70,15 +74,25 @@ function Fear() {
 }
 
 function RandomK() {
-    let num = Math.ceil(Math.random() * 100);
+    // only numbers between 50-100
+    let num = Math.ceil(Math.random() * 100) + 1;
     k.value = num.toString();
     k.select();
-    Fear();
+}
+
+function RandomL() {
+    // only numbers between 50-100
+    let num = Math.ceil(Math.random() * 30);
+    document.getElementById("random-array-length").value = num.toString();
+    k.select();
 }
 
 // clear input and output
 function Clear() {
+    arr = [10, 15, 3, 7];
     k.value = '';
+    document.getElementById("random-array-length").value = '';
     r.innerHTML = `<div></div>`;
+    o.innerHTML = `<div></div>`;
     k.focus();
 }
