@@ -66,15 +66,15 @@
 }
 
 #input-row > input {
-    width: 100px;
+    width: 200px;
 }
 
 #user-array {
-    width: 300px;
+    width: 278px;
 }
 
 #random-array-length {
-    width: 100px;
+    width: 200px;
 }
 
 #the-array {
@@ -103,4 +103,8 @@ button.btn.btn-outline-dark {
 
 #default, #user-array-row, #random-array {
     margin-left: -15px;
+}
+
+#clear-btn, #fear-btn {
+    width: 136px;
 }
