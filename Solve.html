@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body onload="options()">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
@@ -77,42 +77,47 @@
                 Test against the default array, enter in your own array, or generate an array. Then see if any two numbers add up to the 'K' value.
             </p>
             <hr class="my-4">
-            <div class="row">
-                <div class="col-6 align-items-left">
-                    <div class="row">
-                        <div>Option 1 - Given [10,15,3,7]:</div>
-                    </div>
-                    <div id="user-array-row" class="row">
-                        <div>Option 2 - test your own array</div>
-                        <input id="user-array" type="text" placeholder="Comma seperated..." oninput="validity.valid || (value = '');" />
-                    </div>
-                    <div id="random-array" class="row">
-                        <div>Option 3 - generate random array of</div>
-                        <input id="random-array-length" type="number" min="1" placeholder="Length..." oninput="validity.valid || (value = '');" />
-                        <button class="btn btn-outline-dark" onclick="RandomL()">Random L</button>
-                    </div>
-                    <div id="input-row" class="row align-items-center">
-                        <div>Do any two numbers in the array =</div>
-                        <input id="kValue" type="number" placeholder="K value..." min="1" oninput="validity.valid || (value = '');" />
-                        <button class="btn btn-outline-dark" onclick="RandomK()">Random K</button>
-                    </div>
-
+            <div id="gimmespace" class="dropdown text-left">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" onclick="options(1)">Default</a>
+                    <a class="dropdown-item" onclick="options(2)">Enter your own</a>
+                    <a class="dropdown-item" onclick="options(3)">Random Array</a>
                 </div>
-                <div id="array-area" class="col">
-                    <div class="row justify-content-center">
+            </div>
+            <div class="row">
+                <div class="col-4"> </div>
+                <div class="col text-left">
+                    <div class="row">
                         <div>
-                            <div class="col align-items-center"><b>Array</b></div>
-                            <span class="col" id="the-array">[10,15,3,7]</span>
+                            <div id="default">
+                                Default [10,15,3,7]:
+                            </div>
+                            <div id="user-array-row">
+                                <input id="user-array" type="text" placeholder="Comma seperated..." oninput="validity.valid || (value = '');" />
+                            </div>
+                            <div id="random-array">
+                                <input id="random-array-length" type="number" min="1" placeholder="Length..." oninput="validity.valid || (value = '');" />
+                                <button class="btn btn-outline-dark" onclick="RandomL()">Random</button>
+                            </div>
                         </div>
                     </div>
+
+                    <div id="the-word-array"><b>Array: </b><span id="the-array"> </span></div>
+
+                    <div id="input-row" class="row">
+                        <div>Goal: </div>
+                        <input id="kValue" type="number" placeholder="K value..." min="1" oninput="validity.valid || (value = '');" />
+                        <button class="btn btn-outline-dark" onclick="RandomK()">Random</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-danger" onclick="Clear()">Clear</button>
+                        <button class="btn btn-dark" onclick="Fear()">Sum Fear</button>
+                    </div>
+                    <div id="output" class="row">
+                        <div>Result: <span id="result"></span></div>
+                    </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <button class="btn btn-danger" onclick="Clear()">Clear</button>
-                <button class="btn btn-dark" onclick="Fear()">Sum Fear</button>
-            </div>
-            <div id="output" class="row justify-content-center">
-                <div>Result: <span id="result"></span></div>
             </div>
         </div>
     </div>

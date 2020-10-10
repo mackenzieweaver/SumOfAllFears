@@ -82,7 +82,7 @@ function RandomK() {
 
 function RandomL() {
     // only numbers between 50-100
-    let num = Math.ceil(Math.random() * 30);
+    let num = Math.ceil(Math.random() * 28);
     document.getElementById("random-array-length").value = num.toString();
     k.select();
 }
@@ -94,5 +94,31 @@ function Clear() {
     document.getElementById("random-array-length").value = '';
     r.innerHTML = `<div></div>`;
     o.innerHTML = `<div></div>`;
+    options();
     k.focus();
+}
+
+function options(num) {
+    switch (num) {
+        case 1:
+            document.getElementById("default").style.display = "block";
+            document.getElementById("user-array-row").style.display = "none";
+            document.getElementById("random-array").style.display = "none";
+            break;
+        case 2:
+            document.getElementById("default").style.display = "none";
+            document.getElementById("user-array-row").style.display = "block";
+            document.getElementById("random-array").style.display = "none";
+            break;
+        case 3:
+            document.getElementById("default").style.display = "none";
+            document.getElementById("user-array-row").style.display = "none";
+            document.getElementById("random-array").style.display = "block";
+            break;
+        default:
+            document.getElementById("default").style.display = "none";
+            document.getElementById("user-array-row").style.display = "none";
+            document.getElementById("random-array").style.display = "none";
+            break;
+    }
 }

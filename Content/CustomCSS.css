@@ -108,3 +108,16 @@ button.btn.btn-outline-dark {
     display: flex;
     flex-wrap: wrap;
 }
+
+#gimmespace {
+    margin-bottom: 8px;
+}
+
+#the-word-array {
+    margin-left: -15px;
+    margin-top: 8px;
+}
+
+.dropdown-menu > a{
+    margin-bottom: 8px;
+}
