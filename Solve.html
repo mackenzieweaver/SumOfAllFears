@@ -77,36 +77,42 @@
                 Test against the default array, enter in your own array, or generate an array. Then see if any two numbers add up to the 'K' value.
             </p>
             <hr class="my-4">
-            <div id="gimmespace" class="dropdown text-left">
-                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" onclick="options(1)">Default</a>
-                    <a class="dropdown-item" onclick="options(2)">Enter your own</a>
-                    <a class="dropdown-item" onclick="options(3)">Random Array</a>
+
+            <div class="row align-items-center">
+
+                <div class="col-4 align-self-center">
+                    <div class="dropdown text-right">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" onclick="options(1)">Default</a>
+                            <a class="dropdown-item" onclick="options(2)">Enter your own</a>
+                            <a class="dropdown-item" onclick="options(3)">Random Array</a>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="col align-self-center">
+                    <div class="text-left">
+                        <div id="default">
+                            Default [10,15,3,7]:
+                        </div>
+                        <div id="user-array-row">
+                            <input id="user-array" type="text" placeholder="Comma seperated..." oninput="validity.valid || (value = '');" />
+                        </div>
+                        <div id="random-array">
+                            <input id="random-array-length" type="number" min="1" placeholder="Length..." oninput="validity.valid || (value = '');" />
+                            <button class="btn btn-outline-dark" onclick="RandomL()">Random</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="row">
                 <div class="col-4"> </div>
                 <div class="col text-left">
-                    <div class="row">
-                        <div>
-                            <div id="default">
-                                Default [10,15,3,7]:
-                            </div>
-                            <div id="user-array-row">
-                                <input id="user-array" type="text" placeholder="Comma seperated..." oninput="validity.valid || (value = '');" />
-                            </div>
-                            <div id="random-array">
-                                <input id="random-array-length" type="number" min="1" placeholder="Length..." oninput="validity.valid || (value = '');" />
-                                <button class="btn btn-outline-dark" onclick="RandomL()">Random</button>
-                            </div>
-                        </div>
-                    </div>
-
                     <div id="the-word-array"><b>Array: </b><span id="the-array"> </span></div>
 
                     <div id="input-row" class="row">
-                        <div>Goal: </div>
                         <input id="kValue" type="number" placeholder="K value..." min="1" oninput="validity.valid || (value = '');" />
                         <button class="btn btn-outline-dark" onclick="RandomK()">Random</button>
                     </div>
@@ -115,7 +121,7 @@
                         <button class="btn btn-dark" onclick="Fear()">Sum Fear</button>
                     </div>
                     <div id="output" class="row">
-                        <div>Result: <span id="result"></span></div>
+                        <div><b>Result: </b><span id="result"> </span></div>
                     </div>
                 </div>
             </div>

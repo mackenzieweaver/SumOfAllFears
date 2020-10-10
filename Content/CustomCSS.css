@@ -73,14 +73,6 @@
     width: 300px;
 }
 
-#user-array-row, #random-array {
-    margin-top: 16px;
-}
-
-#user-array-row > div, #input-row > div, #random-array > div{
-    margin-right: 8px;
-}
-
 #random-array-length {
     width: 100px;
 }
@@ -104,20 +96,11 @@ button.btn.btn-outline-dark {
     margin-left: 8px;
 }
 
-#array-area {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#gimmespace {
-    margin-bottom: 8px;
-}
-
 #the-word-array {
     margin-left: -15px;
     margin-top: 8px;
 }
 
-.dropdown-menu > a{
-    margin-bottom: 8px;
+#default, #user-array-row, #random-array {
+    margin-left: -15px;
 }
