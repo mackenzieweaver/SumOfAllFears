@@ -3,11 +3,36 @@ const k = document.getElementById('kValue');
 // algo output element
 const r = document.getElementById('result');
 
-// hard-coded array 
-let arr = [10, 15, 3, 7, 10];
+// start with hard-coded array 
+let arr = [10, 15, 3, 7];
 
 // core algo
 function Fear() {
+    /* START USER INPUT ARRAY */
+    let userArr = document.getElementById("user-array").value.split(",");
+    // if user input an array replace hard-coded array
+    if (userArr[0] != "") {
+        // turn user array of strings into array of integers
+        for (let i = 0; i < userArr.length; i++) {
+            userArr[i] = parseInt(userArr[i]);
+        }
+        arr = userArr;
+    }
+    /* END USER INPUT ARRAY */
+
+    /* START RANDOM ARRAY */
+    let randomArrLength = parseInt(document.getElementById("random-array-length").value);
+    // if user input random length array replace hard-coded array
+    if (!isNaN(randomArrLength)) {
+        arr = [];
+        for (let i = 0; i < randomArrLength; i++) {
+            arr.push(Math.ceil(Math.random() * 100));
+        }
+    }
+    /* END RANDOM ARRAY */
+
+    console.log(arr, userArr, randomArrLength);
+    document.getElementById("the-array").innerHTML = `The array is [${arr}]`;
     // k value as a number
     let kval = parseInt(k.value);
     // loop through each value in arr
@@ -42,6 +67,13 @@ function Fear() {
     r.innerHTML = `<b>No Complement...</b>`;
     // highlight previous number in the input box
     k.select();
+}
+
+function RandomK() {
+    let num = Math.ceil(Math.random() * 100);
+    k.value = num.toString();
+    k.select();
+    Fear();
 }
 
 // clear input and output

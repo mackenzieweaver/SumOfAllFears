@@ -70,6 +70,22 @@
     width: 100px;
 }
 
-div#input-row {
-    align-items: center;
+#user-array {
+    width: 300px;
+}
+
+#user-array-row, #random-array {
+    margin-top: 16px;
+}
+
+#user-array-row > div, #input-row > div, #random-array > div{
+    margin-right: 8px;
+}
+
+#random-array-length {
+    width: 100px;
+}
+
+#the-array {
+    margin-top: 16px;
 }
