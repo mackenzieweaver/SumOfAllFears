@@ -112,3 +112,7 @@ button.btn.btn-outline-dark {
 #random-array > button {
     margin-left: 4px;
 }
+
+#btn-row {
+    margin-bottom: 16px;
+}
