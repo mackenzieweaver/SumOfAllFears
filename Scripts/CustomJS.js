@@ -116,7 +116,7 @@ function options(num) {
             document.getElementById("random-array").style.display = "block";
             break;
         default:
-            document.getElementById("default").style.display = "none";
+            document.getElementById("default").style.display = "block";
             document.getElementById("user-array-row").style.display = "none";
             document.getElementById("random-array").style.display = "none";
             break;
