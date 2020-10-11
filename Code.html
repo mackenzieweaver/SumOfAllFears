@@ -66,23 +66,171 @@
                 <p class="lead">Syntax is highlighted using Prism.js</p>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
-                        <div class="card-header" id="headingFear">
+                        <div class="card-header" id="headingConstants">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFear" aria-expanded="false" aria-controls="collapseFear">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseConstants" aria-expanded="false" aria-controls="collapseConstants">
                                     Constants
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseFear" class="collapse" aria-labelledby="headingFear" data-parent="#accordionExample">
+                        <div id="collapseConstants" class="collapse" aria-labelledby="headingConstants" data-parent="#accordionExample">
                             <div class="card-body">
 <pre>
 <code class="language-js">// user input element
 const k = document.getElementById('kValue');
 // algo output element
 const r = document.getElementById('result');
+const o = document.getElementById('the-array');
 
-// start with hard-coded array 
+// start with hard-coded array
 let arr = [10, 15, 3, 7];</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFear">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFear" aria-expanded="false" aria-controls="collapseFear">
+                                    Core Algorithm
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFear" class="collapse" aria-labelledby="headingFear" data-parent="#accordionExample">
+                            <div class="card-body">
+<pre>
+<code class="language-js">// core algo
+function Fear() {
+    /* START USER INPUT ARRAY */
+    let userArr = document.getElementById("user-array").value.split(",");
+    // if user input an array replace hard-coded array
+    if (userArr[0] != "") {
+        // turn user array of strings into array of integers
+        for (let i = 0; i < userArr.length; i++) {
+            userArr[i] = parseInt(userArr[i]);
+        }
+        arr = userArr;
+    }
+    document.getElementById("user-array").value = '';
+    /* END USER INPUT ARRAY */
+
+    /* START RANDOM ARRAY */
+    let randomArrLength = parseInt(document.getElementById("random-array-length").value);
+    // if user input random length array replace hard-coded array
+    if (!isNaN(randomArrLength)) {
+        arr = [];
+        for (let i = 0; i < randomArrLength; i++) {
+            // only numbers between 1-50
+            arr.push(Math.ceil(Math.random() * 50));
+        }
+    }
+    document.getElementById("random-array-length").value = '';
+    /* END RANDOM ARRAY */
+
+    console.log(arr, userArr, randomArrLength);
+    document.getElementById("the-array").innerHTML = `[${arr}]`;
+    // k value as a number
+    let kval = parseInt(k.value);
+    // loop through each value in arr
+    for (let i = 0; i < arr.length; i++) {
+        /* splice removes element from array and returns an array
+        * so that when searching for the complement, self is not included
+        */
+        let num = arr.splice(i, 1);
+        /* search is the value we want to find in the array
+        * equal to the sum "K" minus the current value in array
+        */
+        let search = kval - num[0];
+        /* index is where the value is in the array
+        * if it's not found it's equal to -1
+        */
+        let index = arr.indexOf(search);
+        /* If the index is greater than or equal to zero
+        * we've found the complement
+        */
+        if (index >= 0) {
+            r.innerHTML = `<b>${num} and ${search}</b>`;
+            // put the value back into the array
+            arr.splice(i, 0, num);
+            // highlight previous number in the input box
+            k.select();
+            return;
+        }
+        // put the value back into the array
+        arr.splice(i, 0, num[0]);
+    }
+    // we've gone through the whole array and havn't found any complements
+    r.innerHTML = `<b>No Complement...</b>`;
+    // highlight previous number in the input box
+    k.select();
+}</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingOptions">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOptions" aria-expanded="false" aria-controls="collapseOptions">
+                                    Options
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOptions" class="collapse" aria-labelledby="headingOptions" data-parent="#accordionExample">
+                            <div class="card-body">
+<pre>
+<code class="language-js">function options(num) {
+    switch (num) {
+        case 1:
+            document.getElementById("default").style.display = "block";
+            document.getElementById("user-array-row").style.display = "none";
+            document.getElementById("random-array").style.display = "none";
+            break;
+        case 2:
+            document.getElementById("default").style.display = "none";
+            document.getElementById("user-array-row").style.display = "block";
+            document.getElementById("random-array").style.display = "none";
+            break;
+        case 3:
+            document.getElementById("default").style.display = "none";
+            document.getElementById("user-array-row").style.display = "none";
+            document.getElementById("random-array").style.display = "block";
+            break;
+        default:
+            document.getElementById("default").style.display = "none";
+            document.getElementById("user-array-row").style.display = "none";
+            document.getElementById("random-array").style.display = "none";
+            break;
+    }
+}</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingRandom">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseRandom" aria-expanded="false" aria-controls="collapseRandom">
+                                    Random Algorithms
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseRandom" class="collapse" aria-labelledby="headingRandom" data-parent="#accordionExample">
+                            <div class="card-body">
+<pre>
+<code class="language-js">function RandomK() {
+    // only numbers between 50-100
+    let num = Math.ceil(Math.random() * 100) + 1;
+    k.value = num.toString();
+    k.select();
+}
+
+function RandomL() {
+    // only numbers between 50-100
+    let num = Math.ceil(Math.random() * 28);
+    document.getElementById("random-array-length").value = num.toString();
+    k.select();
+}</code>
 </pre>
                             </div>
                         </div>
@@ -100,8 +248,12 @@ let arr = [10, 15, 3, 7];</code>
 <pre>
 <code class="language-js">// clear input and output
 function Clear() {
+    arr = [10, 15, 3, 7];
     k.value = '';
-    r.innerHTML = `<div></div>`;
+    document.getElementById("random-array-length").value = '';
+    r.innerHTML = `&lt;div&gt;&lt;/div&gt;`;
+    o.innerHTML = `&lt;div&gt;&lt;/div&gt;`;
+    options();
     k.focus();
 }</code>
 </pre>
