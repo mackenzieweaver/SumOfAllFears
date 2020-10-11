@@ -108,3 +108,7 @@ button.btn.btn-outline-dark {
 #clear-btn, #fear-btn {
     width: 186px;
 }
+
+#random-array > button {
+    margin-left: 4px;
+}
