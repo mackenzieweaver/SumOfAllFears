@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\mirage-bad-gateway.png" />
+    <Content Include="Assets\sumofallfears.png" />
     <Content Include="Code.html" />
     <Content Include="Content\CustomCSS.css" />
     <Content Include="Content\IndexCustomCSS.css" />
