@@ -12,3 +12,11 @@ Given a list of numbers and a number K, return whether any two numbers from the 
 Example: given [10, 15, 3, 7] and K of 17, return true since 10 + 7 is 17.
 
 The basic challenge is to write a program that uses a hard-coded array of [10, 15, 3, 7] and allows the user to enter a value for K before running the algorithm and returning true or false.
+
+### Installation
+
+You can view this site [live](https://mackenzie-weaver-sumofallfears.netlify.app/).
+
+To download and run locally, clone this repository and open index.html.
+
+git clone https://github.com/mackenzieweaver/SumOfAllFears
